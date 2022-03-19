@@ -10,6 +10,12 @@ Your objective is to write this new route to fetch the list of expenses for a gi
 
 Finally, as a bonus objective, try to improve any aspect of this API. It could be to add more TS types, better security, tests, add features, graphql support, etc. 
 
+## Working process
+[x]First of all, I decided to code minimal working router: without any options, except userId.
+[x]Part 2 is to add paging and sort.
+[x]Part 3 is to add filtering.
+[]Part 4 refactoring code and documentation
+
 ## Instructions
 
 Fork this repo with your solution. Ideally, we'd like to see your progression through commits, and don't forget to update the README.md to explain your thought process.
