@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import Logger from '@nc/utils/logging';
 import security from './middleware/security';
 import { router as userRoutes } from '@nc/domain-user';
+import {router as expensesRoutes} from "@nc/domain-expense/routes/route";
 import { createServer as createHTTPServer, Server } from 'http';
 import { createServer as createHTTPSServer, Server as SecureServer } from 'https';
 
@@ -30,11 +31,7 @@ app.use(context);
 app.use(security);
 
 app.use('/user', userRoutes);
-
-app.use(function(err, req, res) {
-  res.status(500).json(err);
-});
-
+app.use('/expenses', expensesRoutes)
 server.listen(config.port, () => {
   server.ready = true;
   logger.log(`Server started on port ${config.port}`);

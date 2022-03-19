@@ -1,5 +1,5 @@
 {
-  "name": "node-challenge",
+  "name": "challenge",
   "version": "0.0.0",
   "description": "Website api",
   "private": true,
@@ -8,13 +8,16 @@
     "packages/domains/*",
     "test/*"
   ],
-  "main": "index.js",
+  "config": {
+    "main": "index.js"
+  },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "watch": "nodemon $npm_package_main",
-    "start": "node $npm_package_main",
+    "start": "npm run boot",
+    "boot": "node %npm_package_main%",
     "lint": "eslint --ext .ts --ext .js .",
     "lint:fix": "eslint --ext .ts --ext .js . --fix",
     "test": "yarn test:unit && yarn test:mid-level",
@@ -70,5 +73,9 @@
     "nodemon": "^2.0.0",
     "supertest": "^6.1.0",
     "ts-jest": "^27.0.0"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   }
 }

@@ -23,7 +23,7 @@ describe('[Packages | User-domain | Formatter] secureTrim', () => {
     return expect(secureTrim({
       first_name: 'John',
       last_name: 'Smith',
-      company_name: 'Pleo',
+      company_name: 'Pleo', // @ts-ignore
       ssn: 1,
     })).toEqual(JSON.stringify({
       first_name: 'John',
