@@ -2,8 +2,8 @@ import {Expenses} from "./expenses.type";
 
 
 export class Page{
-    pageNumber: string;
-    pageCount: string;
+    pageNumber: number;
+    pageCount: number;
     data: Expenses[];
     totalCount: number
 }

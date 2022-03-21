@@ -21,10 +21,10 @@
     "lint": "eslint --ext .ts --ext .js .",
     "lint:fix": "eslint --ext .ts --ext .js . --fix",
     "test": "yarn test:unit && yarn test:mid-level",
-    "test:acceptance": "NODE_ENV=qa jest test/acceptance/* --forceExit --maxWorkers=4",
-    "test:coverage": "NODE_ENV=qa jest packages/* --forceExit --maxWorkers=4 --coverage",
-    "test:mid-level": "NODE_ENV=qa jest test/mid-level/* --forceExit --maxWorkers=4",
-    "test:unit": "NODE_ENV=qa jest packages/* --forceExit --maxWorkers=4"
+    "test:acceptance": "cross-env NODE_ENV=qa jest test/acceptance/* --forceExit --maxWorkers=4",
+    "test:coverage": "cross-env NODE_ENV=qa jest packages/* --forceExit --maxWorkers=4 --coverage",
+    "test:mid-level": "cross-env NODE_ENV=qa jest test/mid-level/* --forceExit --maxWorkers=4",
+    "test:unit": "cross-env NODE_ENV=qa jest packages/* --forceExit --maxWorkers=4"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
     "@nc/domain-user": "0.0.0",
     "@nc/utils": "0.0.0",
     "config": "^3.3.0",
+    "core-js": "^3.21.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.0",
     "ha-dns-cache": "^1.0.0",
@@ -64,6 +65,7 @@
     "@types/supertest": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.24.0",

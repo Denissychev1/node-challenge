@@ -18,5 +18,6 @@ export enum MathOperation {
     GR = '>',
     LS = '<',
     GROREQ = '>=',
-    LSOREQ = '<='
+    LSOREQ = '<=',
+    LIKE = 'like'
 }

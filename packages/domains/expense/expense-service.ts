@@ -27,8 +27,8 @@ export async function getExpenceInfo(userId: string, options?: Options): Promise
     return {
         totalCount,
         data: result,
-        pageCount: options?.count || '0',
-        pageNumber: options?.pageNumber || '0'
+        pageCount: options?.count|| 0,
+        pageNumber: options?.pageNumber||0
     };
 }
 
@@ -41,7 +41,7 @@ export function transformQueryParams(query) {
             if (x.length !== 3) return Error('Invalid filter structure');
             filter.push({
                 column: x[0],
-                condition: x[1],
+                condition: MathOperation[x[1]],
                 value: x[2]
             });
         })

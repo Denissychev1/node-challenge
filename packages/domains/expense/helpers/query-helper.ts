@@ -10,7 +10,7 @@ import {QueryType} from "../types/page.type";
 export function getExpensesQuery(type: QueryType, params?: Options): string {
     let baseQuery: string = (
         type === QueryType.query ?
-            'SELECT e.id, e.merchant_name, e.currency, e.date_created, e.status ' +
+            'SELECT e.id, e.merchant_name, e.amount_in_cents, e.currency, e.date_created, e.status ' +
             'FROM expenses e JOIN users u ON e.user_id = u.id ' +
             'addWhere addOrder addPaging' :
             'SELECT count(*) FROM expenses e ' +
@@ -28,13 +28,13 @@ export function getExpensesQuery(type: QueryType, params?: Options): string {
 
 function transformQuery(query: string, options: Options) {
     var transformedQuery = query
-    if (options.sorting)
+    if (options.sorting.length > 0)
         transformedQuery = query.replace(
             'addOrder',
             options.sorting[0].column ?
                 `order by ${options.sorting[0].column} ${options.sorting[0].sortType || SortType.ASC}`
                 : '')
-    if (options.filtering) {
+    if (options.filtering.length > 0) {
         var filter = 'where ';
         options.filtering.forEach(x => {
             options.filtering.map(y => y.column).indexOf(x.column) === 0 ?
