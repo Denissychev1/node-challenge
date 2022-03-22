@@ -11,12 +11,14 @@ Your objective is to write this new route to fetch the list of expenses for a gi
 Finally, as a bonus objective, try to improve any aspect of this API. It could be to add more TS types, better security, tests, add features, graphql support, etc. 
 
 ## Working process
-[x]First of all, I decided to code minimal working router: without any options, except userId.
-[x]Part 2 is to add paging and sort.
-[x]Part 3 is to add filtering.
-[x]Part 4 refactoring code and documentation
+
+[x] First of all, I decided to code minimal working router: without any options, except userId.
+[x] Part 2 is to add paging and sort.
+[x] Part 3 is to add filtering.
+[x] Part 4 refactoring code and documentation
 
 ##My thoughts
+
 I faced a problem with deciding, which way of validating request is better. As I first thought I decided
 to get SQL-query with column names of expense table. Then check, whether user's filter/sort query column exists in column array.
 After a short time of thinking, I realised that I do not want to go to db in order to take columns - 
@@ -25,6 +27,7 @@ So, I left the validation of filter/sort structure and some enums of sorting/fil
 the best solution as there are not all filtering operations allowed.
 
 ##Important information
+
 filtering query should be like `[["column1", "operation1", "value1"], ["column2", "operation2", "value2"]]`
 sorting query should be like `[["column1", "asc/desc"], ["column2", "asc/desc"]]`
 
