@@ -27,8 +27,8 @@ export async function getExpenceInfo(userId: string, options?: Options): Promise
     return {
         totalCount,
         data: result,
-        pageCount: options?.count|| 0,
-        pageNumber: options?.pageNumber||0
+        pageCount: options?.pageCount || 1,
+        pageNumber: options?.pageNumber || 1
     };
 }
 
@@ -41,7 +41,7 @@ export function transformQueryParams(query) {
             if (x.length !== 3) return Error('Invalid filter structure');
             filter.push({
                 column: x[0],
-                condition: MathOperation[x[1]],
+                condition: Object.values(MathOperation).find(v => v === x[1]),
                 value: x[2]
             });
         })
@@ -59,8 +59,8 @@ export function transformQueryParams(query) {
 
     }
     return {
-        count: query?.take || 10,
-        pageNumber: query?.page || 0,
+        pageCount: query?.pageCount || 10,
+        pageNumber: query?.page || 1,
         sorting: sort,
         filtering: filter
     };

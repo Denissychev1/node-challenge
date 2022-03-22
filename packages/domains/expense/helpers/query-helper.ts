@@ -38,16 +38,16 @@ function transformQuery(query: string, options: Options) {
         var filter = 'where ';
         options.filtering.forEach(x => {
             options.filtering.map(y => y.column).indexOf(x.column) === 0 ?
-                (filter = filter + x.column + x.condition + `'${x.value}'`) :
-                (filter = filter + ' and ' + x.column + x.condition + `'${x.value}'`)
+                (filter = filter + x.column + ' ' + x.condition + ' ' + `'${x.value}'`) :
+                (filter = filter + ' and ' + x.column + ' ' + x.condition + ' ' + `'${x.value}'`)
         })
         transformedQuery = transformedQuery.replace('addWhere', filter);
     }
-    if (options.count || options.pageNumber) {
-        let skip = parseInt(options.pageNumber || '0') * parseInt(options.count || '10');
+    if (options.pageCount || options.pageNumber) {
+        let skip = ((options.pageNumber - 1) || 0) * (options.pageCount || 10);
         transformedQuery = transformedQuery
             .replace('addPaging',
-                `offset ${skip} limit ${options.count}`)
+                `offset ${skip} limit ${options.pageCount}`)
     }
     return transformedQuery.replace('addWhere', '')
         .replace('addPaging', '')

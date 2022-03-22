@@ -8,7 +8,7 @@ describe('GET expenses', () => {
             .expect(200);
     })
     test('return type', async () => {
-        let { body } = await Api.get(endpoint)
+        let {body} = await Api.get(endpoint)
             .query({userId: 'da140a29-ae80-4f0e-a62d-6c2d2bc8a474'}).expect(200);
         expect(body).toMatchObject({
             totalCount: expect.any(String),
@@ -20,8 +20,8 @@ describe('GET expenses', () => {
                 date_created: expect.any(String),
                 status: expect.any(String),
             })]),
-            pageCount: 10,
-            pageNumber: 0,
-          })
+            pageCount: expect.any(Number),
+            pageNumber: expect.any(Number),
+        })
     })
 })
