@@ -1,19 +1,14 @@
 import {Filter, MathOperation} from "../types/option.type";
 import {Sorting, SortType} from "../types/sort.type";
-import {getExpensesColumns} from "../data/db-expenses";
-import {to} from "@nc/utils/async";
-import {ApiError, BadRequest} from "@nc/utils/errors";
+import { BadRequest} from "@nc/utils/errors";
 
-export async function transformQueryParams(query) {
+export function transformQueryParams(query) {
     const filter: Filter[] = [];
-    const [error, expensesColumns] = await to(getExpensesColumns());
-    if (error) throw new ApiError(error);
     filter.push({column: 'user_id', condition: MathOperation.EQ, value: query.userId});
     if (query?.filter) {
         let parsedFilter = JSON.parse(query.filter.toString());
         parsedFilter.forEach(x => {
-            if (x.length !== 3) throw BadRequest('Invalid filter structure. It has to be like [["columnName","operation", "value"]]');
-            if (!expensesColumns.map(x => x.columnName).includes(x[0])) throw BadRequest(`There is no column ${x[0]} in expenses table`);
+            if (x.length !== 3) return BadRequest('Invalid filter structure. It has to be like [["columnName","operation", "value"]]');
             let mathOperation =  Object.values(MathOperation).find(v => v === x[1]);
             if (!mathOperation) throw BadRequest(`Invalid math operation! Allowed operations are ${Object.values(MathOperation)}`)
             filter.push({
@@ -28,7 +23,6 @@ export async function transformQueryParams(query) {
         var parsedSort = JSON.parse(query.sort.toString());
         parsedSort.forEach(x => {
             if (x.length !== 2) throw BadRequest('Invalid sort structure. It has to be like [["column", "asc/desc"]]');
-            if (!expensesColumns.map(x => x.columnName).includes(x[0])) throw BadRequest(`There is no column ${x[0]} in expenses table`);
             let ordering =  Object.values(SortType).find(t => t === x[1]);
             if (!ordering) throw BadRequest(`Invalid order type! Allowed type are ${Object.values(SortType)}`)
 

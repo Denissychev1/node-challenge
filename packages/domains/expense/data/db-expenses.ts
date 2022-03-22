@@ -11,7 +11,3 @@ export function getResultByQuery<T>(userId, queryString: string, type: QueryType
         .then((response) =>
             type == QueryType.query ? response.rows : response.rows[0].count);
 }
-export function getExpensesColumns(){
-    return query('SELECT column_name AS "columnName" FROM information_schema.columns i WHERE table_name = \'expenses\'')
-          .then((response) =>response.rows);
-}
