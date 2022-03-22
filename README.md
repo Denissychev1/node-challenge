@@ -17,7 +17,7 @@ Finally, as a bonus objective, try to improve any aspect of this API. It could b
 - [x] Part 3 is to add filtering.
 - [x] Part 4 refactoring code and documentation
 
-##My thoughts
+## My thoughts
 
 I faced a problem with deciding, which way of validating request is better. As I first thought I decided
 to get SQL-query with column names of expense table. Then check, whether user's filter/sort query column exists in column array.
@@ -26,7 +26,7 @@ route will anyway throw an error with non-existing column, and I removed my idea
 So, I left the validation of filter/sort structure and some enums of sorting/filtering. Of course, this is not
 the best solution as there are not all filtering operations allowed.
 
-##Important information
+## Important information
 
 filtering query should be like `[["column1", "operation1", "value1"], ["column2", "operation2", "value2"]]`
 sorting query should be like `[["column1", "asc/desc"], ["column2", "asc/desc"]]`
