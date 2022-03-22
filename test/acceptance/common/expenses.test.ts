@@ -9,7 +9,7 @@ describe('GET expenses', () => {
     })
     test('return type', async () => {
         let {body} = await Api.get(endpoint)
-            .query({userId: 'da140a29-ae80-4f0e-a62d-6c2d2bc8a474'}).expect(200);
+            .query({userId: 'da140a29-ae80-4f0e-a62d-6c2d2bc8a474'});
         expect(body).toMatchObject({
             totalCount: expect.any(String),
             data: expect.arrayContaining([expect.objectContaining({
