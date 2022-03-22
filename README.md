@@ -12,10 +12,10 @@ Finally, as a bonus objective, try to improve any aspect of this API. It could b
 
 ## Working process
 
-[x] First of all, I decided to code minimal working router: without any options, except userId.
-[x] Part 2 is to add paging and sort.
-[x] Part 3 is to add filtering.
-[x] Part 4 refactoring code and documentation
+- [x] First of all, I decided to code minimal working router: without any options, except userId.
+- [x] Part 2 is to add paging and sort.
+- [x] Part 3 is to add filtering.
+- [x] Part 4 refactoring code and documentation
 
 ##My thoughts
 
