@@ -7,7 +7,7 @@ import {transformQueryParams} from "../services/query-params-service";
 export const router = Router();
 router.get('/get-user-expenses',
     async (req, res, next) => {
-        if (!req.query.userId) return Error("no userId was provided");
+        if (!req.query.userId) return next(new Error("no userId was provided"));
         var [transformError, transformResult] = await to(transformQueryParams(req.query));
         if (transformError) return next(new ApiError(transformError, transformError.status));
         const [error, result] = await to(getExpenceInfo(req.query?.userId.toString(), transformResult)).then();
