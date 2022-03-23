@@ -24,8 +24,7 @@ I faced a problem with running tests as I am a Windows user and it is not allowe
 
 I faced a problem with deciding, which way of validating request is better. As I first thought I decided
 to get SQL-query with column names of expense table. Then check, whether user's filter/sort query column exists in column array.
-After a short time of thinking, I realised that I do not want to go to db in order to take columns - 
-route will anyway throw an error with non-existing column, and I removed my idea from the dev branch.
+After a short time of thinking, I realised that I do not want to go to db in order to take columns - the validation process in my realisation got to use db anyway - so in this case my component goes to database twice, and as I think (because there is no any strong logical operations during getting information) it is not being optimal, moreover route will anyway throw an error with non-existing column, and I removed my idea from the dev branch.
 So, I left the validation of filter/sort structure and some enums of sorting/filtering. Of course, this is not
 the best solution as there are not all filtering operations allowed.
 
@@ -36,6 +35,10 @@ But as I think - better solution is to attach a GraphQL - schema with descriptio
 
 filtering query should be like `[["column1", "operation1", "value1"], ["column2", "operation2", "value2"]]`
 sorting query should be like `[["column1", "asc/desc"], ["column2", "asc/desc"]]`
+
+## Conclusion
+
+It has taken me 3 days working approximately 3 hours per day. It could be seen like it is too much time for this challenge, but as I have said earlier, I decided to remove some code because of irrational purposes of those.
 
 ## Instructions
 
