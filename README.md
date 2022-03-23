@@ -19,6 +19,9 @@ Finally, as a bonus objective, try to improve any aspect of this API. It could b
 
 ## My thoughts
 
+First of all, I decided to work in dev- branch, because whatever I do, I do it in a my own branch.
+I faced a problem with running tests as I am a Windows user and it is not allowed to add any variables in terminal. So, reading about this issue in internet had helped me.
+
 I faced a problem with deciding, which way of validating request is better. As I first thought I decided
 to get SQL-query with column names of expense table. Then check, whether user's filter/sort query column exists in column array.
 After a short time of thinking, I realised that I do not want to go to db in order to take columns - 
