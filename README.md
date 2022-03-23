@@ -22,14 +22,14 @@ Finally, as a bonus objective, try to improve any aspect of this API. It could b
 First of all, I decided to work in dev- branch, because whatever I do, I do it in a my own branch.
 I faced a problem with running tests as I am a Windows user and it is not allowed to add any variables in terminal. So, reading about this issue in internet had helped me.
 
-I faced a problem with deciding, which way of validating request is better. As I first thought I decided
+I faced a problem with deciding, which way of validating request is better. As a first thought I decided
 to get SQL-query with column names of expense table. Then check, whether user's filter/sort query column exists in column array.
-After a short time of thinking, I realised that I do not want to go to db in order to take columns - the validation process in my realisation got to use db anyway - so in this case my component goes to database twice, and as I think (because there is no any strong logical operations during getting information) it is not being optimal, moreover route will anyway throw an error with non-existing column, and I removed my idea from the dev branch.
-So, I left the validation of filter/sort structure and some enums of sorting/filtering. Of course, this is not
+After a short time of thinking, I realised that I do not want to go to db in order to take columns. The validation process in my realisation got to use db anyway - so in this case my component goes to database twice, and as I think (because there is no any strong logical operations during getting information) it is not being optimal, moreover route will anyway throw an error with non-existing column, and I removed my idea from the dev branch.
+So, I left the validation of filter/sort structure and some enums of sorting/filtering (without going to database). Of course, this is not
 the best solution as there are not all filtering operations allowed.
 
 In future (if I will have time) is good to make a validator as detached class in order to check all queries whether they are valid.
-But as I think - better solution is to attach a GraphQL - schema with description - it is easier to test (for example in Altair) - as while you a writing query - it will not give you a chance to write something extraordinary from documentation.
+But as I think - better solution is to attach a GraphQL schema with description - it is easier to test (for example in Altair) - as while you a writing query - it will not give you a chance to write something extraordinary from documentation.
 
 ## Important information
 
@@ -38,7 +38,7 @@ sorting query should be like `[["column1", "asc/desc"], ["column2", "asc/desc"]]
 
 ## Conclusion
 
-It has taken me 3 days working approximately 3 hours per day. It could be seen like it is too much time for this challenge, but as I have said earlier, I decided to remove some code because of irrational purposes of those.
+It has taken me 3 days working approximately 3 hours per day. It could be seen like it is too much time for this challenge, but as I have said earlier, I decided to remove some idea realisations because of irrational purposes of those.
 
 ## Instructions
 
