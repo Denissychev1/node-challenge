@@ -29,6 +29,9 @@ route will anyway throw an error with non-existing column, and I removed my idea
 So, I left the validation of filter/sort structure and some enums of sorting/filtering. Of course, this is not
 the best solution as there are not all filtering operations allowed.
 
+In future (if I will have time) is good to make a validator as detached class in order to check all queries whether they are valid.
+But as I think - better solution is to attach a GraphQL - schema with description - it is easier to test (for example in Altair) - as while you a writing query - it will not give you a chance to write something extraordinary from documentation.
+
 ## Important information
 
 filtering query should be like `[["column1", "operation1", "value1"], ["column2", "operation2", "value2"]]`
